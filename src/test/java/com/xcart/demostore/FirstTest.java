@@ -1,13 +1,18 @@
 package com.xcart.demostore;
 
-import org.junit.Test;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.*;
 
-public class FirstTest {
+public class FirstTest extends WebDriverSettings {
 
     @Test
     public void firstTest() {
-        ChromeDriver driver = new ChromeDriver();
         driver.get("https://demostore.x-cart.com/");
+
+        String title = driver.getTitle();
+        Assert.assertTrue(title.equals("X-Cart Demo store company > Catalog"));
+
     }
+
+
+
 }
