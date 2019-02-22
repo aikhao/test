@@ -1,8 +1,9 @@
 package com.xcart.demostore;
 
+import com.xcart.demostore.page.Page;
 import org.junit.*;
 
-public class FirstTest extends WebDriverSettings {
+public class FirstTest extends Page {
 
     @Test
     public void firstTest() {

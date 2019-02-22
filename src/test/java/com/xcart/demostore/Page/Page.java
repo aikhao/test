@@ -1,10 +1,10 @@
-package com.xcart.demostore;
+package com.xcart.demostore.page;
 
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class WebDriverSettings {
+public class Page {
 
     public ChromeDriver driver;
 
