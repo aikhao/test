@@ -5,13 +5,14 @@ import org.junit.*;
 
 public class FirstTest extends Page {
 
-    @Ignore
+
     @Test
     public void firstTest() {
-        driver.get("https://demostore.x-cart.com/");
+        Page page = new Page();
+//        driver.get("https://demostore.x-cart.com/");
 
-        String title = driver.getTitle();
-        Assert.assertEquals(title,("X-Cart Demo store company > Catalog"));
+//        String title = driver.getTitle();
+//        Assert.assertEquals(title,("X-Cart Demo store company > Catalog"));
 
     }
 

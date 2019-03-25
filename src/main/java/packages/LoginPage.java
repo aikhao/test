@@ -46,7 +46,7 @@ public class LoginPage {
 
     public SignUpPage createAccount(){
         driver.findElement(createAccLink).click();
-        return new SignUpPage(driver);
+        return new SignUpPage();
     }
 
 

@@ -11,11 +11,13 @@ public class MainPage {
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
+    private By heading = By.xpath("//div[@class='setup-wrapper']//h1");
 
-    @FindBy(xpath = "//a[text()='Sign in']")
-    private WebElement signInButton;
 
-    @FindBy(xpath = "//a[text()='Sign up']")
+//    @FindBy(xpath = )
+    private By signInButton = By.xpath("//a[@href='/login']");
+
+    @FindBy(xpath = "//a[@href='/join?source=header-home' and contains(@class,'HeaderMenu-link')]")
     private WebElement signUpButton;
     @FindBy(xpath = ".//*[@id='user[login]']")
     private WebElement userNameField;
@@ -27,18 +29,20 @@ public class MainPage {
     private WebElement signUpFormButton;
 
     public LoginPage clickSignIn(){
-        signInButton.click();
+//        driver.findElement(By.xpath("//a[@href='/login']")).click();
+
+        driver.findElement(signInButton).click();
         return new LoginPage(driver);
     }
 
     public SignUpPage clickSignUpButton(){
         signUpButton.click();
-        return new SignUpPage(driver);
+        return new SignUpPage();
     }
 
     public SignUpPage clickSignUpFormButton(){
         signUpFormButton.click();
-        return new SignUpPage(driver);
+        return new SignUpPage();
     }
 
     public MainPage typeUserName(String username){
@@ -61,7 +65,7 @@ public class MainPage {
         this.typeEmail(email);
         this.typePassword(password);
         this.clickSignUpFormButton();
-        return new SignUpPage(driver);
+        return new SignUpPage();
     }
 
 

@@ -1,15 +1,18 @@
 package packages;
 
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class SignUpPage {
 
-    WebDriver driver;
+//    WebDriver driver;
 
-    public SignUpPage(WebDriver driver) {
-        this.driver = driver;
-    }
+//    public SignUpPage(WebDriver driver) {
+//        this.driver = driver;
+//    }
 
     private By heading = By.xpath("//div[@class='setup-wrapper']//h1");
     private By userNameField = By.xpath(".//*[@id='user_login']");
@@ -21,18 +24,23 @@ public class SignUpPage {
     private By emailError = By.xpath(".//*[@id='user_email']/ancestor::dd/following-sibling::dd");
     private By passwordError = By.xpath(".//*[@id='user_password']/ancestor::dd/following-sibling::dd");
 
+    public SignUpPage open(){
+        Selenide.open("");
+        return this;
+    }
+
     public SignUpPage typeUserName(String username){
-        driver.findElement(userNameField).sendKeys(username);
+        $(userNameField).val(username);
         return this;
     }
 
     public SignUpPage typePassword(String password){
-        driver.findElement(passwordField).sendKeys(password);
+        $(passwordField).val(password);
         return this;
     }
 
     public SignUpPage typeEmail(String email){
-        driver.findElement(emailField).sendKeys(email);
+        $(emailField).val(email);
         return this;
     }
 
@@ -40,28 +48,28 @@ public class SignUpPage {
         this.typeUserName(username);
         this.typeEmail(email);
         this.typePassword(password);
-        driver.findElement(signUpButton).click();
-        return new SignUpPage(driver);
+        $(signUpButton).click();
+        return new SignUpPage();
     }
 
     public String getHeadingText(){
-        return driver.findElement(heading).getText();
+        return $(heading).getText();
     }
 
     public String getMainErrorText(){
-        return driver.findElement(mainError).getText();
+        return $(mainError).getText();
     }
 
     public String getUsernameErrorText(){
-        return driver.findElement(userNameError).getText();
+        return $(userNameError).getText();
     }
 
     public String getPasswrodErrorText(){
-        return driver.findElement(passwordError).getText();
+        return $(passwordError).getText();
     }
 
     public String getEmailErrorText(){
-        return driver.findElement(emailError).getText();
+        return $(emailError).getText();
     }
 
 }
