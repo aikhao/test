@@ -1,9 +1,12 @@
 package com.xcart.demostore;
 
+import com.xcart.demostore.page.AdminPage;
+import com.xcart.demostore.page.CustomerPage;
 import com.xcart.demostore.page.Page;
 import org.junit.*;
 
 public class FirstTest extends Page {
+    private CustomerPage page;
 
 
     @Test
@@ -22,6 +25,8 @@ public class FirstTest extends Page {
 
         System.out.println(s.equals("ne2"));
     }
+
+
 
 
 
